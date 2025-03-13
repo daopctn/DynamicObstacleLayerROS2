@@ -1,1 +1,0 @@
-/home/daopctn/ros2_ws/src/nav2_dynamic_msgs/msg/Obstacle.msg

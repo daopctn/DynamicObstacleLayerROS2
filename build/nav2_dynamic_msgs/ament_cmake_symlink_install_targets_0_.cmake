@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_py/nav2_dynamic_msgs/nav2_dynamic_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" "TARGETS" "nav2_dynamic_msgs__rosidl_typesupport_fastrtps_c__pyext" "DESTINATION" "local/lib/python3.10/dist-packages/nav2_dynamic_msgs")
