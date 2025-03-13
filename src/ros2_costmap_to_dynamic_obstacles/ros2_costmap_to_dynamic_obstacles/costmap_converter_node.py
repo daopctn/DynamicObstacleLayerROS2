@@ -34,7 +34,7 @@ class CostmapConverterNode(Node):
 
         # Chuyển đổi costmap thành ảnh OpenCV
         costmap_data = np.array(msg.data, dtype=np.int8).reshape((height, width))
-        costmap_image = np.where(costmap_data == -1, 255, costmap_data)
+        costmap_image = np.where(costmap_data == -1, 255, costmap_data).astype(np.uint8)
 
         # Phát hiện vật thể động
         obstacles = self.detect_dynamic_obstacles(costmap_image, resolution, origin)
@@ -47,9 +47,12 @@ class CostmapConverterNode(Node):
         self.publisher.publish(obstacle_array_msg)
 
     def detect_dynamic_obstacles(self, image, resolution, origin):
-        """ Phát hiện vật thể động trong costmap sử dụng OpenCV """
+        # Phát hiện vật thể động trong costmap sử dụng OpenCV
         processed_image = cv2.GaussianBlur(image, (5, 5), 0)
         fg_mask = self.background_subtraction(processed_image)
+
+        # Đảm bảo ảnh fg_mask là dạng uint8
+        fg_mask = fg_mask.astype(np.uint8)
 
         contours, _ = cv2.findContours(fg_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         obstacles = []
@@ -89,7 +92,7 @@ class CostmapConverterNode(Node):
         return obstacles
 
     def background_subtraction(self, image):
-        """ Phát hiện vật thể động bằng tách nền """
+        # Phát hiện vật thể động bằng tách nền
         if not hasattr(self, 'previous_image'):
             self.previous_image = image.copy()
             return np.zeros_like(image, dtype=np.uint8)
