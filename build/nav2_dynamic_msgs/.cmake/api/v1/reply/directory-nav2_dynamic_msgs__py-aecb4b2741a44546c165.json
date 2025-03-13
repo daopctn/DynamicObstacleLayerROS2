@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "nav2_dynamic_msgs__py",
+		"source" : "/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/nav2_dynamic_msgs__py"
+	}
+}

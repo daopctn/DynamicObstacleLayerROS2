@@ -1,0 +1,1 @@
+/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/ament_cmake_environment_hooks/local_setup.bash

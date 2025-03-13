@@ -1,0 +1,168 @@
+[0.012s] Invoking command in '/home/daopctn/ros2_ws/build/nav2_dynamic_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daopctn/ros2_ws/install/ros2_costmap_to_dynamic_obstacles:/home/daopctn/turtlebot3_ws/install/turtlebot3_teleop:/home/daopctn/turtlebot3_ws/install/turtlebot3_example:/home/daopctn/ros2_webots_ws/install/webots_ros2:/home/daopctn/ros2_webots_ws/install/webots_ros2_universal_robot:/home/daopctn/ros2_webots_ws/install/webots_ros2_turtlebot:/home/daopctn/ros2_webots_ws/install/webots_ros2_tiago:/home/daopctn/ros2_webots_ws/install/webots_ros2_tests:/home/daopctn/ros2_webots_ws/install/webots_ros2_tesla:/home/daopctn/ros2_webots_ws/install/webots_ros2_mavic:/home/daopctn/ros2_webots_ws/install/webots_ros2_husarion:/home/daopctn/ros2_webots_ws/install/webots_ros2_epuck:/home/daopctn/ros2_webots_ws/install/webots_ros2_crazyflie:/home/daopctn/ros2_webots_ws/install/webots_ros2_importer:/opt/ros/humble /usr/bin/cmake --build /home/daopctn/ros2_ws/build/nav2_dynamic_msgs -- -j12 -l12
+[0.048s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.164s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.176s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.181s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.184s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.215s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.239s] -- Found std_msgs: 4.2.4 (/opt/ros/humble/share/std_msgs/cmake)
+[0.262s] -- Found unique_identifier_msgs: 2.2.1 (/opt/ros/humble/share/unique_identifier_msgs/cmake)
+[0.271s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.545s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.765s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.053s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.076s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.097s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.097s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.097s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.153s] -- Configuring done
+[1.193s] -- Generating done
+[1.203s] -- Build files have been written to: /home/daopctn/ros2_ws/build/nav2_dynamic_msgs
+[1.224s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_generator_c[0m
+[1.232s] [  2%] Built target nav2_dynamic_msgs__cpp
+[1.234s] [ 12%] Built target nav2_dynamic_msgs__rosidl_generator_c
+[1.241s] [ 12%] Built target ament_cmake_python_symlink_nav2_dynamic_msgs
+[1.242s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_typesupport_cpp[0m
+[1.242s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[1.243s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_typesupport_fastrtps_c[0m
+[1.243s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_typesupport_c[0m
+[1.243s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_typesupport_introspection_c[0m
+[1.243s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp[0m
+[1.254s] [ 23%] Built target nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp
+[1.254s] [ 33%] Built target nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp
+[1.254s] [ 43%] Built target nav2_dynamic_msgs__rosidl_typesupport_fastrtps_c
+[1.255s] [ 53%] Built target nav2_dynamic_msgs__rosidl_typesupport_c
+[1.255s] [ 64%] Built target nav2_dynamic_msgs__rosidl_typesupport_cpp
+[1.256s] [ 74%] Built target nav2_dynamic_msgs__rosidl_typesupport_introspection_c
+[1.273s] [ 74%] Built target nav2_dynamic_msgs
+[1.291s] [ 76%] Built target nav2_dynamic_msgs__py
+[1.300s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_generator_py[0m
+[1.311s] [ 84%] Built target nav2_dynamic_msgs__rosidl_generator_py
+[1.320s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[1.320s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_typesupport_c__pyext[0m
+[1.320s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[1.331s] [100%] Built target nav2_dynamic_msgs__rosidl_typesupport_introspection_c__pyext
+[1.331s] [100%] Built target nav2_dynamic_msgs__rosidl_typesupport_c__pyext
+[1.331s] [100%] Built target nav2_dynamic_msgs__rosidl_typesupport_fastrtps_c__pyext
+[1.489s] running egg_info
+[1.490s] writing nav2_dynamic_msgs.egg-info/PKG-INFO
+[1.491s] writing dependency_links to nav2_dynamic_msgs.egg-info/dependency_links.txt
+[1.491s] writing top-level names to nav2_dynamic_msgs.egg-info/top_level.txt
+[1.493s] reading manifest file 'nav2_dynamic_msgs.egg-info/SOURCES.txt'
+[1.493s] writing manifest file 'nav2_dynamic_msgs.egg-info/SOURCES.txt'
+[1.513s] [100%] Built target ament_cmake_python_build_nav2_dynamic_msgs_egg
+[1.522s] Invoked command in '/home/daopctn/ros2_ws/build/nav2_dynamic_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daopctn/ros2_ws/install/ros2_costmap_to_dynamic_obstacles:/home/daopctn/turtlebot3_ws/install/turtlebot3_teleop:/home/daopctn/turtlebot3_ws/install/turtlebot3_example:/home/daopctn/ros2_webots_ws/install/webots_ros2:/home/daopctn/ros2_webots_ws/install/webots_ros2_universal_robot:/home/daopctn/ros2_webots_ws/install/webots_ros2_turtlebot:/home/daopctn/ros2_webots_ws/install/webots_ros2_tiago:/home/daopctn/ros2_webots_ws/install/webots_ros2_tests:/home/daopctn/ros2_webots_ws/install/webots_ros2_tesla:/home/daopctn/ros2_webots_ws/install/webots_ros2_mavic:/home/daopctn/ros2_webots_ws/install/webots_ros2_husarion:/home/daopctn/ros2_webots_ws/install/webots_ros2_epuck:/home/daopctn/ros2_webots_ws/install/webots_ros2_crazyflie:/home/daopctn/ros2_webots_ws/install/webots_ros2_importer:/opt/ros/humble /usr/bin/cmake --build /home/daopctn/ros2_ws/build/nav2_dynamic_msgs -- -j12 -l12
+[1.530s] Invoking command in '/home/daopctn/ros2_ws/build/nav2_dynamic_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daopctn/ros2_ws/install/ros2_costmap_to_dynamic_obstacles:/home/daopctn/turtlebot3_ws/install/turtlebot3_teleop:/home/daopctn/turtlebot3_ws/install/turtlebot3_example:/home/daopctn/ros2_webots_ws/install/webots_ros2:/home/daopctn/ros2_webots_ws/install/webots_ros2_universal_robot:/home/daopctn/ros2_webots_ws/install/webots_ros2_turtlebot:/home/daopctn/ros2_webots_ws/install/webots_ros2_tiago:/home/daopctn/ros2_webots_ws/install/webots_ros2_tests:/home/daopctn/ros2_webots_ws/install/webots_ros2_tesla:/home/daopctn/ros2_webots_ws/install/webots_ros2_mavic:/home/daopctn/ros2_webots_ws/install/webots_ros2_husarion:/home/daopctn/ros2_webots_ws/install/webots_ros2_epuck:/home/daopctn/ros2_webots_ws/install/webots_ros2_crazyflie:/home/daopctn/ros2_webots_ws/install/webots_ros2_importer:/opt/ros/humble /usr/bin/cmake --install /home/daopctn/ros2_ws/build/nav2_dynamic_msgs
+[1.536s] -- Install configuration: ""
+[1.536s] -- Execute custom install script
+[1.537s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/ament_index/resource_index/rosidl_interfaces/nav2_dynamic_msgs
+[1.537s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__functions.h
+[1.537s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__struct.h
+[1.537s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__type_support.h
+[1.537s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__functions.h
+[1.537s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__struct.h
+[1.537s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__type_support.h
+[1.537s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/obstacle.h
+[1.537s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/obstacle_array.h
+[1.538s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/rosidl_generator_c__visibility_control.h
+[1.538s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/library_path.sh
+[1.538s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/library_path.dsv
+[1.538s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__rosidl_typesupport_fastrtps_c.h
+[1.538s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__rosidl_typesupport_fastrtps_c.h
+[1.538s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[1.539s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__rosidl_typesupport_introspection_c.h
+[1.539s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__rosidl_typesupport_introspection_c.h
+[1.539s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[1.539s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__builder.hpp
+[1.539s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__struct.hpp
+[1.539s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__traits.hpp
+[1.539s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__type_support.hpp
+[1.539s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__builder.hpp
+[1.540s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__struct.hpp
+[1.540s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__traits.hpp
+[1.540s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__type_support.hpp
+[1.540s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/obstacle.hpp
+[1.540s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/obstacle_array.hpp
+[1.540s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[1.540s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__rosidl_typesupport_fastrtps_cpp.hpp
+[1.540s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__rosidl_typesupport_fastrtps_cpp.hpp
+[1.540s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[1.541s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__rosidl_typesupport_introspection_cpp.hpp
+[1.541s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__rosidl_typesupport_introspection_cpp.hpp
+[1.541s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/pythonpath.sh
+[1.541s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/pythonpath.dsv
+[1.541s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs-0.0.0-py3.10.egg-info/PKG-INFO
+[1.541s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs-0.0.0-py3.10.egg-info/SOURCES.txt
+[1.541s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs-0.0.0-py3.10.egg-info/dependency_links.txt
+[1.541s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs-0.0.0-py3.10.egg-info/top_level.txt
+[1.542s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/__init__.py
+[1.542s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/_nav2_dynamic_msgs_s.ep.rosidl_typesupport_c.c
+[1.542s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/_nav2_dynamic_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[1.542s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/_nav2_dynamic_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[1.542s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/libnav2_dynamic_msgs__rosidl_generator_py.so
+[1.542s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/msg/__init__.py
+[1.542s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/msg/_obstacle.py
+[1.542s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/msg/_obstacle_array.py
+[1.542s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/msg/_obstacle_array_s.c
+[1.542s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/msg/_obstacle_s.c
+[1.543s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/nav2_dynamic_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[1.543s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/nav2_dynamic_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[1.543s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/nav2_dynamic_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[1.543s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/nav2_dynamic_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[1.543s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/nav2_dynamic_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[1.543s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/nav2_dynamic_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[1.543s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/msg/Obstacle.idl
+[1.543s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/msg/ObstacleArray.idl
+[1.544s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/msg/Obstacle.msg
+[1.544s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/msg/ObstacleArray.msg
+[1.544s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/ament_index/resource_index/package_run_dependencies/nav2_dynamic_msgs
+[1.544s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/ament_index/resource_index/parent_prefix_path/nav2_dynamic_msgs
+[1.544s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/ament_prefix_path.sh
+[1.544s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/ament_prefix_path.dsv
+[1.544s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/path.sh
+[1.544s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/path.dsv
+[1.544s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/local_setup.bash
+[1.545s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/local_setup.sh
+[1.545s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/local_setup.zsh
+[1.545s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/local_setup.dsv
+[1.545s] -- Symlinking: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/package.dsv
+[1.552s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/ament_index/resource_index/packages/nav2_dynamic_msgs
+[1.552s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/rosidl_cmake-extras.cmake
+[1.552s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.552s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.552s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[1.552s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[1.553s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[1.553s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[1.553s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgsConfig.cmake
+[1.553s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgsConfig-version.cmake
+[1.553s] -- Up-to-date symlink: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/package.xml
+[1.554s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_generator_c.so
+[1.554s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_typesupport_fastrtps_c.so
+[1.554s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_typesupport_introspection_c.so
+[1.554s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_typesupport_c.so
+[1.555s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp.so
+[1.555s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_typesupport_introspection_cpp.so
+[1.555s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_typesupport_cpp.so
+[1.588s] Listing '/home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs'...
+[1.588s] Compiling '/home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/__init__.py'...
+[1.588s] Listing '/home/daopctn/ros2_ws/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/msg'...
+[1.592s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_generator_py.so
+[1.592s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_generator_cExport.cmake
+[1.592s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_generator_cExport-noconfig.cmake
+[1.592s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[1.592s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[1.593s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_introspection_cExport.cmake
+[1.593s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[1.593s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_cExport.cmake
+[1.593s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[1.593s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_generator_cppExport.cmake
+[1.593s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[1.593s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[1.593s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[1.593s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[1.593s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_cppExport.cmake
+[1.593s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[1.593s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_generator_pyExport.cmake
+[1.593s] -- Up-to-date: /home/daopctn/ros2_ws/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_generator_pyExport-noconfig.cmake
+[1.595s] Invoked command in '/home/daopctn/ros2_ws/build/nav2_dynamic_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daopctn/ros2_ws/install/ros2_costmap_to_dynamic_obstacles:/home/daopctn/turtlebot3_ws/install/turtlebot3_teleop:/home/daopctn/turtlebot3_ws/install/turtlebot3_example:/home/daopctn/ros2_webots_ws/install/webots_ros2:/home/daopctn/ros2_webots_ws/install/webots_ros2_universal_robot:/home/daopctn/ros2_webots_ws/install/webots_ros2_turtlebot:/home/daopctn/ros2_webots_ws/install/webots_ros2_tiago:/home/daopctn/ros2_webots_ws/install/webots_ros2_tests:/home/daopctn/ros2_webots_ws/install/webots_ros2_tesla:/home/daopctn/ros2_webots_ws/install/webots_ros2_mavic:/home/daopctn/ros2_webots_ws/install/webots_ros2_husarion:/home/daopctn/ros2_webots_ws/install/webots_ros2_epuck:/home/daopctn/ros2_webots_ws/install/webots_ros2_crazyflie:/home/daopctn/ros2_webots_ws/install/webots_ros2_importer:/opt/ros/humble /usr/bin/cmake --install /home/daopctn/ros2_ws/build/nav2_dynamic_msgs

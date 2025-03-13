@@ -1,0 +1,1 @@
+/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/obstacle_array__rosidl_typesupport_fastrtps_cpp.hpp

@@ -1,0 +1,62 @@
+In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle_array__functions.h:19[m[K,
+                 from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle_array__functions.c:4[m[K:
+[01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle_array__struct.h:22:10:[m[K [01;31m[Kfatal error: [m[Kstd_msgs/msg/detail/header__struct.h: No such file or directory
+   22 | #include [01;31m[K"std_msgs/msg/detail/header__struct.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle__functions.h:19[m[K,
+                 from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle__functions.c:4[m[K:
+[01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle__struct.h:22:10:[m[K [01;31m[Kfatal error: [m[Kstd_msgs/msg/detail/header__struct.h: No such file or directory
+   22 | #include [01;31m[K"std_msgs/msg/detail/header__struct.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_generator_c.dir/build.make:135: CMakeFiles/nav2_dynamic_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle_array__functions.c.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_generator_c.dir/build.make:121: CMakeFiles/nav2_dynamic_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle__functions.c.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:213: CMakeFiles/nav2_dynamic_msgs__rosidl_generator_c.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_cpp/nav2_dynamic_msgs/msg/obstacle_array__type_support.cpp:7[m[K:
+[01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle_array__struct.hpp:20:10:[m[K [01;31m[Kfatal error: [m[Kstd_msgs/msg/detail/header__struct.hpp: No such file or directory
+   20 | #include [01;31m[K"std_msgs/msg/detail/header__struct.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_cpp.dir/build.make:104: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_dynamic_msgs/msg/obstacle_array__type_support.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_cpp/nav2_dynamic_msgs/msg/obstacle__type_support.cpp:7[m[K:
+[01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle__struct.hpp:20:10:[m[K [01;31m[Kfatal error: [m[Kstd_msgs/msg/detail/header__struct.hpp: No such file or directory
+   20 | #include [01;31m[K"std_msgs/msg/detail/header__struct.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_cpp.dir/build.make:90: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_dynamic_msgs/msg/obstacle__type_support.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:395: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_cpp.dir/all] Error 2
+In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_introspection_cpp/nav2_dynamic_msgs/msg/detail/obstacle_array__type_support.cpp:12[m[K:
+[01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle_array__struct.hpp:20:10:[m[K [01;31m[Kfatal error: [m[Kstd_msgs/msg/detail/header__struct.hpp: No such file or directory
+   20 | #include [01;31m[K"std_msgs/msg/detail/header__struct.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp.dir/build.make:112: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_dynamic_msgs/msg/detail/obstacle_array__type_support.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_introspection_cpp/nav2_dynamic_msgs/msg/detail/obstacle__type_support.cpp:12[m[K:
+[01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle__struct.hpp:20:10:[m[K [01;31m[Kfatal error: [m[Kstd_msgs/msg/detail/header__struct.hpp: No such file or directory
+   20 | #include [01;31m[K"std_msgs/msg/detail/header__struct.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp.dir/build.make:98: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_dynamic_msgs/msg/detail/obstacle__type_support.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:369: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp.dir/all] Error 2
+In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/obstacle_array__rosidl_typesupport_fastrtps_cpp.hpp:11[m[K,
+                 from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/dds_fastrtps/obstacle_array__type_support.cpp:4[m[K:
+[01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle_array__struct.hpp:20:10:[m[K [01;31m[Kfatal error: [m[Kstd_msgs/msg/detail/header__struct.hpp: No such file or directory
+   20 | #include [01;31m[K"std_msgs/msg/detail/header__struct.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make:112: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/dds_fastrtps/obstacle_array__type_support.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/obstacle__rosidl_typesupport_fastrtps_cpp.hpp:11[m[K,
+                 from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/dds_fastrtps/obstacle__type_support.cpp:4[m[K:
+[01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle__struct.hpp:20:10:[m[K [01;31m[Kfatal error: [m[Kstd_msgs/msg/detail/header__struct.hpp: No such file or directory
+   20 | #include [01;31m[K"std_msgs/msg/detail/header__struct.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make:98: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/dds_fastrtps/obstacle__type_support.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:343: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

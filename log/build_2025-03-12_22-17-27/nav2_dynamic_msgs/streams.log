@@ -1,0 +1,113 @@
+[0.015s] Invoking command in '/home/daopctn/ros2_ws/build/nav2_dynamic_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daopctn/ros2_webots_ws/install/webots_ros2:/home/daopctn/ros2_webots_ws/install/webots_ros2_universal_robot:/home/daopctn/ros2_webots_ws/install/webots_ros2_turtlebot:/home/daopctn/ros2_webots_ws/install/webots_ros2_tiago:/home/daopctn/ros2_webots_ws/install/webots_ros2_tests:/home/daopctn/ros2_webots_ws/install/webots_ros2_tesla:/home/daopctn/ros2_webots_ws/install/webots_ros2_mavic:/home/daopctn/ros2_webots_ws/install/webots_ros2_husarion:/home/daopctn/ros2_webots_ws/install/webots_ros2_epuck:/home/daopctn/ros2_webots_ws/install/webots_ros2_crazyflie:/home/daopctn/ros2_webots_ws/install/webots_ros2_importer:/home/daopctn/ros2_ws/install/ros2_costmap_to_dynamic_obstacles:/home/daopctn/turtlebot3_ws/install/turtlebot3_teleop:/home/daopctn/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --build /home/daopctn/ros2_ws/build/nav2_dynamic_msgs -- -j12 -l12
+[0.036s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.154s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.159s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.163s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.165s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.189s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.211s] -- Found std_msgs: 4.2.4 (/opt/ros/humble/share/std_msgs/cmake)
+[0.238s] -- Found unique_identifier_msgs: 2.2.1 (/opt/ros/humble/share/unique_identifier_msgs/cmake)
+[0.247s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.500s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.688s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.941s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.962s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[0.983s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.983s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[0.983s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.017s] -- Configuring done
+[1.043s] -- Generating done
+[1.052s] -- Build files have been written to: /home/daopctn/ros2_ws/build/nav2_dynamic_msgs
+[1.072s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[1.080s] [  5%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[1.086s] [  5%] Built target ament_cmake_python_symlink_nav2_dynamic_msgs
+[1.320s] running egg_info
+[1.322s] writing nav2_dynamic_msgs.egg-info/PKG-INFO
+[1.322s] writing dependency_links to nav2_dynamic_msgs.egg-info/dependency_links.txt
+[1.322s] writing top-level names to nav2_dynamic_msgs.egg-info/top_level.txt
+[1.324s] reading manifest file 'nav2_dynamic_msgs.egg-info/SOURCES.txt'
+[1.325s] writing manifest file 'nav2_dynamic_msgs.egg-info/SOURCES.txt'
+[1.354s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_generator_c[0m
+[1.358s] [  5%] Built target nav2_dynamic_msgs__cpp
+[1.363s] [  5%] Built target ament_cmake_python_build_nav2_dynamic_msgs_egg
+[1.363s] [  7%] [32mBuilding C object CMakeFiles/nav2_dynamic_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle__functions.c.o[0m
+[1.363s] [ 10%] [32mBuilding C object CMakeFiles/nav2_dynamic_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle_array__functions.c.o[0m
+[1.367s] [ 15%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[1.367s] [ 15%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[1.367s] [ 17%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[1.375s] In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle__functions.h:19[m[K,
+[1.375s]                  from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle__functions.c:4[m[K:
+[1.375s] [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle__struct.h:24:10:[m[K [01;31m[Kfatal error: [m[Kunique_identifier_msgs/msg/detail/uuid__struct.h: No such file or directory
+[1.375s]    24 | #include [01;31m[K"unique_identifier_msgs/msg/detail/uuid__struct.h"[m[K
+[1.375s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.375s] compilation terminated.
+[1.375s] In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle_array__struct.h:24[m[K,
+[1.375s]                  from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle_array__functions.h:19[m[K,
+[1.375s]                  from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle_array__functions.c:4[m[K:
+[1.375s] [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle__struct.h:24:10:[m[K [01;31m[Kfatal error: [m[Kunique_identifier_msgs/msg/detail/uuid__struct.h: No such file or directory
+[1.375s]    24 | #include [01;31m[K"unique_identifier_msgs/msg/detail/uuid__struct.h"[m[K
+[1.375s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.375s] compilation terminated.
+[1.375s] gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_generator_c.dir/build.make:153: CMakeFiles/nav2_dynamic_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle__functions.c.o] Error 1
+[1.375s] gmake[2]: *** Waiting for unfinished jobs....
+[1.376s] gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_generator_c.dir/build.make:167: CMakeFiles/nav2_dynamic_msgs__rosidl_generator_c.dir/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle_array__functions.c.o] Error 1
+[1.376s] gmake[1]: *** [CMakeFiles/Makefile2:213: CMakeFiles/nav2_dynamic_msgs__rosidl_generator_c.dir/all] Error 2
+[1.376s] gmake[1]: *** Waiting for unfinished jobs....
+[1.586s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_typesupport_cpp[0m
+[1.596s] [ 23%] [32mBuilding CXX object CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_dynamic_msgs/msg/obstacle__type_support.cpp.o[0m
+[1.596s] [ 23%] [32mBuilding CXX object CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_dynamic_msgs/msg/obstacle_array__type_support.cpp.o[0m
+[1.604s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp[0m
+[1.613s] [ 25%] [32mBuilding CXX object CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_dynamic_msgs/msg/detail/obstacle__type_support.cpp.o[0m
+[1.615s] [ 28%] [32mBuilding CXX object CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_dynamic_msgs/msg/detail/obstacle_array__type_support.cpp.o[0m
+[1.618s] [35m[1mConsolidate compiler generated dependencies of target nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[1.628s] [ 30%] [32mBuilding CXX object CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/dds_fastrtps/obstacle__type_support.cpp.o[0m
+[1.628s] [ 33%] [32mBuilding CXX object CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/dds_fastrtps/obstacle_array__type_support.cpp.o[0m
+[1.640s] In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle_array__struct.hpp:22[m[K,
+[1.640s]                  from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_cpp/nav2_dynamic_msgs/msg/obstacle_array__type_support.cpp:7[m[K:
+[1.640s] [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle__struct.hpp:22:10:[m[K [01;31m[Kfatal error: [m[Kunique_identifier_msgs/msg/detail/uuid__struct.hpp: No such file or directory
+[1.640s]    22 | #include [01;31m[K"unique_identifier_msgs/msg/detail/uuid__struct.hpp"[m[K
+[1.640s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.640s] In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_cpp/nav2_dynamic_msgs/msg/obstacle__type_support.cpp:7[m[K:
+[1.641s] [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle__struct.hpp:22:10:[m[K [01;31m[Kfatal error: [m[Kunique_identifier_msgs/msg/detail/uuid__struct.hpp: No such file or directory
+[1.641s]    22 | #include [01;31m[K"unique_identifier_msgs/msg/detail/uuid__struct.hpp"[m[K
+[1.641s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.641s] compilation terminated.
+[1.641s] compilation terminated.
+[1.641s] gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_cpp.dir/build.make:122: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_dynamic_msgs/msg/obstacle__type_support.cpp.o] Error 1
+[1.641s] gmake[2]: *** Waiting for unfinished jobs....
+[1.641s] gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_cpp.dir/build.make:136: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nav2_dynamic_msgs/msg/obstacle_array__type_support.cpp.o] Error 1
+[1.641s] gmake[1]: *** [CMakeFiles/Makefile2:395: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_cpp.dir/all] Error 2
+[1.662s] In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle_array__struct.hpp:22[m[K,
+[1.662s]                  from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_introspection_cpp/nav2_dynamic_msgs/msg/detail/obstacle_array__type_support.cpp:12[m[K:
+[1.662s] [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle__struct.hpp:22:10:[m[K [01;31m[Kfatal error: [m[Kunique_identifier_msgs/msg/detail/uuid__struct.hpp: No such file or directory
+[1.662s]    22 | #include [01;31m[K"unique_identifier_msgs/msg/detail/uuid__struct.hpp"[m[K
+[1.662s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.662s] compilation terminated.
+[1.662s] In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_introspection_cpp/nav2_dynamic_msgs/msg/detail/obstacle__type_support.cpp:12[m[K:
+[1.662s] [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle__struct.hpp:22:10:[m[K [01;31m[Kfatal error: [m[Kunique_identifier_msgs/msg/detail/uuid__struct.hpp: No such file or directory
+[1.662s]    22 | #include [01;31m[K"unique_identifier_msgs/msg/detail/uuid__struct.hpp"[m[K
+[1.662s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.663s] compilation terminated.
+[1.663s] gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp.dir/build.make:144: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_dynamic_msgs/msg/detail/obstacle_array__type_support.cpp.o] Error 1
+[1.663s] gmake[2]: *** Waiting for unfinished jobs....
+[1.663s] gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp.dir/build.make:130: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nav2_dynamic_msgs/msg/detail/obstacle__type_support.cpp.o] Error 1
+[1.663s] gmake[1]: *** [CMakeFiles/Makefile2:369: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp.dir/all] Error 2
+[1.672s] In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/obstacle__rosidl_typesupport_fastrtps_cpp.hpp:11[m[K,
+[1.673s]                  from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/dds_fastrtps/obstacle__type_support.cpp:4[m[K:
+[1.673s] [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle__struct.hpp:22:10:[m[K [01;31m[Kfatal error: [m[Kunique_identifier_msgs/msg/detail/uuid__struct.hpp: No such file or directory
+[1.673s]    22 | #include [01;31m[K"unique_identifier_msgs/msg/detail/uuid__struct.hpp"[m[K
+[1.673s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.673s] compilation terminated.
+[1.673s] In file included from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle_array__struct.hpp:22[m[K,
+[1.673s]                  from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/obstacle_array__rosidl_typesupport_fastrtps_cpp.hpp:11[m[K,
+[1.673s]                  from [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/dds_fastrtps/obstacle_array__type_support.cpp:4[m[K:
+[1.673s] [01m[K/home/daopctn/ros2_ws/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle__struct.hpp:22:10:[m[K [01;31m[Kfatal error: [m[Kunique_identifier_msgs/msg/detail/uuid__struct.hpp: No such file or directory
+[1.673s]    22 | #include [01;31m[K"unique_identifier_msgs/msg/detail/uuid__struct.hpp"[m[K
+[1.673s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.673s] compilation terminated.
+[1.673s] gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make:130: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/dds_fastrtps/obstacle__type_support.cpp.o] Error 1
+[1.673s] gmake[2]: *** Waiting for unfinished jobs....
+[1.674s] gmake[2]: *** [CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make:144: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nav2_dynamic_msgs/msg/detail/dds_fastrtps/obstacle_array__type_support.cpp.o] Error 1
+[1.674s] gmake[1]: *** [CMakeFiles/Makefile2:343: CMakeFiles/nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp.dir/all] Error 2
+[1.674s] gmake: *** [Makefile:146: all] Error 2
+[1.676s] Invoked command in '/home/daopctn/ros2_ws/build/nav2_dynamic_msgs' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daopctn/ros2_webots_ws/install/webots_ros2:/home/daopctn/ros2_webots_ws/install/webots_ros2_universal_robot:/home/daopctn/ros2_webots_ws/install/webots_ros2_turtlebot:/home/daopctn/ros2_webots_ws/install/webots_ros2_tiago:/home/daopctn/ros2_webots_ws/install/webots_ros2_tests:/home/daopctn/ros2_webots_ws/install/webots_ros2_tesla:/home/daopctn/ros2_webots_ws/install/webots_ros2_mavic:/home/daopctn/ros2_webots_ws/install/webots_ros2_husarion:/home/daopctn/ros2_webots_ws/install/webots_ros2_epuck:/home/daopctn/ros2_webots_ws/install/webots_ros2_crazyflie:/home/daopctn/ros2_webots_ws/install/webots_ros2_importer:/home/daopctn/ros2_ws/install/ros2_costmap_to_dynamic_obstacles:/home/daopctn/turtlebot3_ws/install/turtlebot3_teleop:/home/daopctn/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --build /home/daopctn/ros2_ws/build/nav2_dynamic_msgs -- -j12 -l12

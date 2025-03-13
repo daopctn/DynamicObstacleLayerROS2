@@ -1,0 +1,7 @@
+{
+  "package_name": "nav2_dynamic_msgs",
+  "non_idl_tuples": [
+    "/home/daopctn/ros2_ws/src/nav2_dynamic_msgs:msg/Obstacle.msg",
+    "/home/daopctn/ros2_ws/src/nav2_dynamic_msgs:msg/ObstacleArray.msg"
+  ]
+}
