@@ -1,20 +1,25 @@
-#ifndef COSTMAP_TO_DYNAMIC_OBSTACLES_HPP
-#define COSTMAP_TO_DYNAMIC_OBSTACLES_HPP
+#ifndef COSTMAP_TO_DYNAMIC_OBSTACLES_H
+#define COSTMAP_TO_DYNAMIC_OBSTACLES_H
 
+#include <rclcpp/rclcpp.hpp>
+#include <nav_msgs/msg/occupancy_grid.hpp>
+#include <nav2_costmap_2d/costmap_2d_ros.hpp>
 #include <opencv2/opencv.hpp>
-#include "background_subtractor.hpp"
-#include "blob_detector.hpp"
+#include "nav2_dynamic_msgs/msg/obstacle_array.hpp"
 
-class CostmapToDynamicObstacle {
+class CostmapToDynamicObstacle
+{
 public:
     CostmapToDynamicObstacle();
     void initialize();
-    void setCostmap2D(const cv::Mat& costmap);
-    void compute(cv::Mat& fg_mask);
-    void fillObstacleArrayMsg(nav2_dynamic_msgs::msg::ObstacleArray& obstacles_msg);
+    void setCostmap2D(const nav2_costmap_2d::Costmap2DROS &costmap_ros);
+    void compute();
+    nav2_dynamic_msgs::msg::ObstacleArray getObstacles() const;
+
 private:
-    BackgroundSubtractor bg_subtractor_;
-    BlobDetector blob_detector_;
+    cv::Mat costmap_mat_;
+    nav2_dynamic_msgs::msg::ObstacleArray obstacle_array_;
+    void detectBlobs();
 };
 
-#endif // COSTMAP_TO_DYNAMIC_OBSTACLES_HPP
+#endif // COSTMAP_TO_DYNAMIC_OBSTACLES_H

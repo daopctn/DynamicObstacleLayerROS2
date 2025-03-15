@@ -1,12 +1,25 @@
 #include "blob_detector.hpp"
 
 BlobDetector::BlobDetector() {
-    params_.filterByArea = true;
-    params_.minArea = 10;
+    configureDetector();
 }
 
-void BlobDetector::detect(const cv::Mat& fg_mask, std::vector<cv::KeyPoint>& keypoints, std::vector<std::vector<cv::Point>>& contours) {
-    cv::SimpleBlobDetector detector(params_);
-    detector.detect(fg_mask, keypoints);
-    cv::findContours(fg_mask, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
+void BlobDetector::configureDetector() {
+    cv::SimpleBlobDetector::Params params;
+    
+    params.filterByArea = true;
+    params.minArea = 50;
+    params.maxArea = 5000;
+    
+    params.filterByCircularity = true;
+    params.minCircularity = 0.1;
+    
+    params.filterByInertia = true;
+    params.minInertiaRatio = 0.1;
+    
+    detector = cv::SimpleBlobDetector::create(params);
+}
+
+void BlobDetector::detectBlobs(const cv::Mat& inputImage, std::vector<cv::KeyPoint>& keypoints) {
+    detector->detect(inputImage, keypoints);
 }

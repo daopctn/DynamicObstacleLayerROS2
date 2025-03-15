@@ -1,3 +1,4 @@
+// blob_detector.hpp
 #ifndef BLOB_DETECTOR_HPP
 #define BLOB_DETECTOR_HPP
 
@@ -7,9 +8,11 @@
 class BlobDetector {
 public:
     BlobDetector();
-    void detect(const cv::Mat& fg_mask, std::vector<cv::KeyPoint>& keypoints, std::vector<std::vector<cv::Point>>& contours);
+    void detectBlobs(const cv::Mat& inputImage, std::vector<cv::KeyPoint>& keypoints);
+
 private:
-    cv::SimpleBlobDetector::Params params_;
+    cv::Ptr<cv::SimpleBlobDetector> detector;
+    void configureDetector();
 };
 
 #endif // BLOB_DETECTOR_HPP
