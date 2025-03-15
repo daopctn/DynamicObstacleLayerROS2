@@ -12,7 +12,9 @@
         "/opt/ros/humble/include/**",
         "/usr/include/**",
         "/home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/**",
-        "/home/nav2_ws/src/navigation2/nav2_costmap_2d/include/**"
+        "/home/daopctn/ros2_ws/src/ros2_costmap_to_dynamic_obstacles/include",
+        "/home/daopctn/ros2_ws/src/ros2_costmap_to_dynamic_obstacles/include/ros2_costmap_to_dynamic_obstacles",
+        "/home/nav2_ws/install/nav2_costmap_2d/include/**"
       ],
       "name": "ROS",
       "intelliSenseMode": "gcc-x64",
