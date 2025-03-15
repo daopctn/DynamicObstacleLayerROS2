@@ -1,12 +1,26 @@
-#include "ros2_costmap_to_dynamic_obstacles/background_subtractor.hpp"
+#include "background_subtractor.hpp"
 
-BackgroundSubtractor::BackgroundSubtractor() {
-    bg_subtractor_ = cv::createBackgroundSubtractorMOG2(500, 16, true);
-}
+BackgroundSubtractor::BackgroundSubtractor() {}
 
-void BackgroundSubtractor::apply(const cv::Mat& input, cv::Mat& fg_mask) {
-    if (input.empty()) return;
-    bg_subtractor_->apply(input, fg_mask);
-    cv::erode(fg_mask, fg_mask, cv::Mat(), cv::Point(-1, -1), 2);
-    cv::dilate(fg_mask, fg_mask, cv::Mat(), cv::Point(-1, -1), 2);
+void BackgroundSubtractor::apply(const cv::Mat &costmap, cv::Mat &fg_mask)
+{
+    if (slow_background.empty())
+    {
+        slow_background = costmap.clone();
+        fast_background = costmap.clone();
+        fg_mask = cv::Mat::zeros(costmap.size(), CV_8UC1);
+        return;
+    }
+
+    // Update background models
+    slow_background = (1 - alpha_slow) * slow_background + alpha_slow * costmap;
+    fast_background = (1 - alpha_fast) * fast_background + alpha_fast * costmap;
+
+    // Compute foreground mask
+    cv::Mat diff;
+    cv::absdiff(fast_background, slow_background, diff);
+    cv::threshold(diff, fg_mask, threshold2, 255, cv::THRESH_BINARY);
+    
+    // Further refine by eliminating noise
+    cv::threshold(fast_background, fg_mask, threshold1, 255, cv::THRESH_BINARY);
 }
