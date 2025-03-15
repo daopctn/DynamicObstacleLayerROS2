@@ -10,7 +10,8 @@
         "/home/daopctn/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/include/**",
         "/home/daopctn/turtlebot3_ws/install/dynamixel_sdk/include/**",
         "/opt/ros/humble/include/**",
-        "/usr/include/**"
+        "/usr/include/**",
+        "/home/daopctn/ros2_ws/install/nav2_dynamic_msgs/include/**"
       ],
       "name": "ROS",
       "intelliSenseMode": "gcc-x64",
