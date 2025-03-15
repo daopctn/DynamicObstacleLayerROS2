@@ -7,6 +7,7 @@ from geometry_msgs.msg import Point, Vector3
 from std_msgs.msg import Header
 from unique_identifier_msgs.msg import UUID
 from nav2_dynamic_msgs.msg import Obstacle, ObstacleArray
+from visualization_msgs.msg import Marker, MarkerArray
 
 class CostmapConverterNode(Node):
     def __init__(self):
@@ -22,6 +23,7 @@ class CostmapConverterNode(Node):
 
         # Publisher để gửi danh sách vật thể động
         self.publisher = self.create_publisher(ObstacleArray, '/detection', 10)
+        self.marker_publisher = self.create_publisher(MarkerArray, '/detection_markers', 10)
 
         self.get_logger().info("Costmap Converter Node Initialized")
 
@@ -45,6 +47,7 @@ class CostmapConverterNode(Node):
         obstacle_array_msg.obstacles = obstacles
 
         self.publisher.publish(obstacle_array_msg)
+        self.publish_as_marker(msg.header.frame_id, obstacles)
 
     def detect_dynamic_obstacles(self, image, resolution, origin):
         # Phát hiện vật thể động trong costmap sử dụng OpenCV
@@ -102,6 +105,36 @@ class CostmapConverterNode(Node):
 
         self.previous_image = image.copy()
         return fg_mask
+
+    def publish_as_marker(self, frame_id, obstacles):
+        marker_array = MarkerArray()
+        
+        # Xóa toàn bộ Marker cũ để tránh hiện tượng "bóng ma"
+        delete_marker = Marker()
+        delete_marker.action = Marker.DELETEALL
+        marker_array.markers.append(delete_marker)
+        
+        for i, obstacle in enumerate(obstacles):
+            marker = Marker()
+            marker.header.frame_id = "map"
+            marker.header.stamp = self.get_clock().now().to_msg()
+            marker.ns = "Obstacles Markers"
+            marker.id = i
+            marker.type = Marker.CUBE
+            marker.action = Marker.ADD
+            marker.pose.position = obstacle.position
+            marker.pose.orientation.w = 1.0
+            marker.scale.x = max(0.3, obstacle.size.x)  # Đảm bảo Marker không quá nhỏ
+            marker.scale.y = max(0.3, obstacle.size.y)
+            marker.scale.z = 0.2  # Độ cao Marker để dễ quan sát
+            marker.color.r = 1.0
+            marker.color.g = 0.0
+            marker.color.b = 0.0
+            marker.color.a = 0.8  # Độ trong suốt phù hợp
+            marker_array.markers.append(marker)
+        
+        self.marker_publisher.publish(marker_array)
+
 
 def main(args=None):
     rclpy.init(args=args)
