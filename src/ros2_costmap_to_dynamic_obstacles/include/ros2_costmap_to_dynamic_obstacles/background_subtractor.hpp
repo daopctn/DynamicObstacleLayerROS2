@@ -10,11 +10,11 @@ public:
     void apply(const cv::Mat& costmap, cv::Mat& fg_mask);
 
 private:
-    const float alpha_fast_ = 0.4;  // Hệ số cập nhật của bộ lọc nhanh
-    const float alpha_slow_ = 0.1;  // Hệ số cập nhật của bộ lọc chậm
-    const float beta_ = 0.8;        // Ảnh hưởng của hàng xóm gần nhất
-    const float threshold1_ = 50;   // Ngưỡng kích hoạt bộ lọc nhanh
-    const float threshold2_ = 30;   // Ngưỡng chênh lệch giữa bộ lọc nhanh và chậm
+    float alpha_fast_;  // Hệ số cập nhật của bộ lọc nhanh
+    float alpha_slow_;  // Hệ số cập nhật của bộ lọc chậm
+    float beta_;        // Ảnh hưởng của hàng xóm gần nhất
+    float threshold1_;  // Ngưỡng kích hoạt bộ lọc nhanh
+    float threshold2_;  // Ngưỡng chênh lệch giữa bộ lọc nhanh và chậm
 
     cv::Mat fast_filter_; // Lưu trạng thái bộ lọc nhanh
     cv::Mat slow_filter_; // Lưu trạng thái bộ lọc chậm
