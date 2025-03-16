@@ -4,19 +4,20 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
 
-class BackgroundSubtractor
-{
+class BackgroundSubtractor {
 public:
-    BackgroundSubtractor();
-    void apply(const cv::Mat &costmap, cv::Mat &fg_mask);
+    BackgroundSubtractor(float alpha_fast, float alpha_slow, float beta, float threshold1, float threshold2);
+    void apply(const cv::Mat& costmap, cv::Mat& fg_mask);
 
 private:
-    cv::Mat slow_background;
-    cv::Mat fast_background;
-    float alpha_fast = 0.1;
-    float alpha_slow = 0.01;
-    float threshold1 = 50;
-    float threshold2 = 20;
+    float alpha_fast_; // Hệ số cập nhật của bộ lọc nhanh
+    float alpha_slow_; // Hệ số cập nhật của bộ lọc chậm
+    float beta_;       // Ảnh hưởng của hàng xóm gần nhất
+    float threshold1_; // Ngưỡng kích hoạt bộ lọc nhanh
+    float threshold2_; // Ngưỡng chênh lệch giữa bộ lọc nhanh và chậm
+
+    cv::Mat fast_filter_; // Lưu trạng thái bộ lọc nhanh
+    cv::Mat slow_filter_; // Lưu trạng thái bộ lọc chậm
 };
 
 #endif // BACKGROUND_SUBTRACTOR_HPP

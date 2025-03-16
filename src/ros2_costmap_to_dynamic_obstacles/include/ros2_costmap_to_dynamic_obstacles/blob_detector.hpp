@@ -1,4 +1,3 @@
-// blob_detector.hpp
 #ifndef BLOB_DETECTOR_HPP
 #define BLOB_DETECTOR_HPP
 
@@ -7,12 +6,12 @@
 
 class BlobDetector {
 public:
-    BlobDetector();
-    void detectBlobs(const cv::Mat& inputImage, std::vector<cv::KeyPoint>& keypoints);
+    BlobDetector(float min_area, float max_area, float min_circularity, float min_inertia_ratio);
+    void detect(const cv::Mat& binary_image, std::vector<cv::KeyPoint>& keypoints);
 
 private:
-    cv::Ptr<cv::SimpleBlobDetector> detector;
-    void configureDetector();
+    cv::SimpleBlobDetector::Params params_;
+    cv::Ptr<cv::SimpleBlobDetector> detector_;
 };
 
 #endif // BLOB_DETECTOR_HPP
