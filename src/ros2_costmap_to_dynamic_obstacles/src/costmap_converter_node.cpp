@@ -1,30 +1,73 @@
 #include <rclcpp/rclcpp.hpp>
-#include "costmap_to_dynamic_obstacles.hpp"
+#include <nav2_util/lifecycle_node.hpp>
+#include <nav2_costmap_2d/costmap_2d_ros.hpp>
+#include <nav2_costmap_2d/costmap_2d.hpp>
+#include <memory>
 
-class CostmapConversionNode : public rclcpp::Node {
+class CustomCostmapNode : public nav2_util::LifecycleNode {
 public:
-    CostmapConversionNode() : Node("costmap_converter_node") {
-        detection_pub_ = this->create_publisher<nav2_dynamic_msgs::msg::ObstacleArray>("/detection", 10);
-        timer_ = this->create_wall_timer(std::chrono::milliseconds(150), std::bind(&CostmapConversionNode::publishCallback, this));
-        costmap_converter_ = std::make_unique<CostmapToDynamicObstacle>();
-        costmap_converter_->initialize();
+  CustomCostmapNode() : LifecycleNode("custom_costmap_node") {
+    RCLCPP_INFO(this->get_logger(), "CustomCostmapNode created.");
+  }
+
+  nav2_util::CallbackReturn on_configure(const rclcpp_lifecycle::State&) override {
+    RCLCPP_INFO(this->get_logger(), "Configuring...");
+
+    // Khởi tạo Costmap2DROS với tên riêng để tránh xung đột
+    costmap_ros_ = std::make_shared<nav2_costmap_2d::Costmap2DROS>(
+      "custom_local_costmap");
+
+    return nav2_util::CallbackReturn::SUCCESS;
+  }
+
+  nav2_util::CallbackReturn on_activate(const rclcpp_lifecycle::State&) override {
+    RCLCPP_INFO(this->get_logger(), "Activating...");
+
+    // Kích hoạt Costmap2DROS
+    costmap_ros_->on_configure(rclcpp_lifecycle::State());
+    costmap_ros_->on_activate(rclcpp_lifecycle::State());
+
+    // Lấy con trỏ tới Costmap2D và in kích thước
+    nav2_costmap_2d::Costmap2D* costmap = costmap_ros_->getCostmap();
+    if (costmap) {
+      unsigned int width = costmap->getSizeInCellsX();
+      unsigned int height = costmap->getSizeInCellsY();
+      RCLCPP_INFO(this->get_logger(), "Custom costmap size: width = %u, height = %u", width, height);
+    } else {
+      RCLCPP_ERROR(this->get_logger(), "Failed to get Costmap2D instance.");
+      return nav2_util::CallbackReturn::FAILURE;
     }
+
+    return nav2_util::CallbackReturn::SUCCESS;
+  }
+
+  nav2_util::CallbackReturn on_deactivate(const rclcpp_lifecycle::State&) override {
+    RCLCPP_INFO(this->get_logger(), "Deactivating...");
+    costmap_ros_->on_deactivate(rclcpp_lifecycle::State());
+    return nav2_util::CallbackReturn::SUCCESS;
+  }
+
+  nav2_util::CallbackReturn on_cleanup(const rclcpp_lifecycle::State&) override {
+    RCLCPP_INFO(this->get_logger(), "Cleaning up...");
+    costmap_ros_.reset();
+    return nav2_util::CallbackReturn::SUCCESS;
+  }
+
 private:
-    std::unique_ptr<CostmapToDynamicObstacle> costmap_converter_;
-    rclcpp::Publisher<nav2_dynamic_msgs::msg::ObstacleArray>::SharedPtr detection_pub_;
-    rclcpp::TimerBase::SharedPtr timer_;
-    void publishCallback() {
-        cv::Mat fg_mask;
-        costmap_converter_->compute(fg_mask);
-        nav2_dynamic_msgs::msg::ObstacleArray obstacles_msg;
-        costmap_converter_->fillObstacleArrayMsg(obstacles_msg);
-        detection_pub_->publish(obstacles_msg);
-    }
+  std::shared_ptr<nav2_costmap_2d::Costmap2DROS> costmap_ros_;
 };
 
 int main(int argc, char** argv) {
-    rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<CostmapConversionNode>());
-    rclcpp::shutdown();
-    return 0;
+  rclcpp::init(argc, argv);
+  auto node = std::make_shared<CustomCostmapNode>();
+
+  // Đưa node vào trạng thái active
+  node->configure();
+  node->activate();
+
+  rclcpp::spin(node->get_node_base_interface());
+  node->deactivate();
+  node->cleanup();
+  rclcpp::shutdown();
+  return 0;
 }
