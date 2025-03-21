@@ -1,17 +1,18 @@
-#ifndef BLOB_DETECTOR_HPP
-#define BLOB_DETECTOR_HPP
+#ifndef BLOBDETECTOR_HPP
+#define BLOBDETECTOR_HPP
 
 #include <opencv2/opencv.hpp>
 #include <vector>
 
 class BlobDetector {
 public:
-    BlobDetector(float min_area, float max_area, float min_circularity, float min_inertia_ratio);
-    void detect(const cv::Mat& binary_image, std::vector<cv::KeyPoint>& keypoints);
+    BlobDetector(float min_area = 10.0f, float max_area = 1000.0f, 
+                 int min_threshold = 128, int max_threshold = 255);
+    // Phát hiện blob, trả về keypoints (centroids) và contours
+    void detect(const cv::Mat& image, std::vector<cv::KeyPoint>& keypoints_, std::vector<std::vector<cv::Point>>& contours);
 
 private:
-    cv::SimpleBlobDetector::Params params_;
-    cv::Ptr<cv::SimpleBlobDetector> detector_;
+    cv::Ptr<cv::SimpleBlobDetector> detector_;  // Pointer to OpenCV's SimpleBlobDetector
 };
 
-#endif // BLOB_DETECTOR_HPP
+#endif // BLOBDETECTOR_HPP

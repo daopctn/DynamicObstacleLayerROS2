@@ -6,7 +6,11 @@
 
 class BackgroundSubtractor {
 public:
+    // Constructor mặc định
     BackgroundSubtractor();
+    // Constructor có tham số
+    BackgroundSubtractor(float alpha_fast, float alpha_slow, float beta, float threshold1, float threshold2);
+    
     void apply(const cv::Mat& costmap, cv::Mat& fg_mask);
 
 private:

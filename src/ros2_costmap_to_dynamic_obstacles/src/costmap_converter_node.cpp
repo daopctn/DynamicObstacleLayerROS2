@@ -8,6 +8,7 @@ class CustomCostmapNode : public nav2_util::LifecycleNode {
 public:
   CustomCostmapNode() : LifecycleNode("custom_costmap_node") {
     RCLCPP_INFO(this->get_logger(), "CustomCostmapNode created.");
+    timer_=this->create_wall_timer(std::chrono::milliseconds(150),std::bind(&CustomCostmapNode::publishCallback, this));
   }
 
   nav2_util::CallbackReturn on_configure(const rclcpp_lifecycle::State&) override {
@@ -54,7 +55,13 @@ public:
   }
 
 private:
+  void publishCallback()
+  {
+    //HEAR
+    RCLCPP_INFO(this->get_logger(),"Hello");
+  }
   std::shared_ptr<nav2_costmap_2d::Costmap2DROS> costmap_ros_;
+  rclcpp::TimerBase::SharedPtr timer_;
 };
 
 int main(int argc, char** argv) {
@@ -68,6 +75,7 @@ int main(int argc, char** argv) {
   rclcpp::spin(node->get_node_base_interface());
   node->deactivate();
   node->cleanup();
+  node->shutdown();
   rclcpp::shutdown();
   return 0;
 }
