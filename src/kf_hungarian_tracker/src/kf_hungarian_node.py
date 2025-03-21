@@ -10,7 +10,7 @@ import rclpy
 import copy
 from rclpy.node import Node
 import colorsys
-from kf_hungarian_tracker.obstacle_class import ObstacleClass
+from src.obstacle_class import ObstacleClass
 
 from tf2_ros import TransformException
 from tf2_ros.buffer import Buffer
