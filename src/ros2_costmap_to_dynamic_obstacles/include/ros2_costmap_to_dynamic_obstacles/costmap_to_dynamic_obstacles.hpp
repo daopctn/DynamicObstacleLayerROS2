@@ -7,7 +7,7 @@
 #include <vector>
 #include <geometry_msgs/msg/point.hpp>
 #include <nav2_dynamic_msgs/msg/obstacle_array.hpp>
-#include <costmap_2d/costmap_2d.hpp>
+#include <nav2_costmap_2d/costmap_2d.hpp>
 
 class CostmapToDynamicObstacles {
 public:

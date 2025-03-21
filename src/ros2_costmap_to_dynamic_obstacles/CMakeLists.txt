@@ -16,6 +16,7 @@ find_package(tf2_ros REQUIRED)
 # Include directories
 include_directories(
   include
+  include/ros2_costmap_to_dynamic_obstacles
   ${OpenCV_INCLUDE_DIRS}
 )
 
