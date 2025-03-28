@@ -13,6 +13,7 @@
         "/home/daopctn/ros2_webots_ws/install/webots_ros2_control/include/**",
         "/home/daopctn/ros2_webots_ws/install/webots_ros2_driver/include/**",
         "/home/daopctn/ros2_webots_ws/install/webots_ros2_msgs/include/**",
+        "/home/daopctn/nav2_ws/install/nav_2d_msgs/include/**",
         "/opt/ros/humble/include/**",
         "/usr/include/**",
         "/home/daopctn/ros2_ws/src/ros2_costmap_to_dynamic_obstacles/include/ros2_costmap_to_dynamic_obstacles/**"

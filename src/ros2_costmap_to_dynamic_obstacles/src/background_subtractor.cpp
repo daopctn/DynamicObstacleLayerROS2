@@ -1,73 +1,113 @@
-#include "background_subtractor.hpp"
+#include <opencv2/opencv.hpp>  
+#include <background_subtractor.h>
 
-// Constructor mặc định
-BackgroundSubtractor::BackgroundSubtractor()
-    : alpha_fast_(0.1f),    // Hệ số cập nhật nhanh mặc định
-      alpha_slow_(0.01f),   // Hệ số cập nhật chậm mặc định
-      beta_(0.5f),          // Ảnh hưởng của hàng xóm mặc định
-      threshold1_(10.0f),   // Ngưỡng kích hoạt bộ lọc nhanh mặc định
-      threshold2_(5.0f)     // Ngưỡng chênh lệch giữa hai bộ lọc mặc định
+BackgroundSubtractor::BackgroundSubtractor(const Params &parameters): params_(parameters)
 {
-    // Các ma trận fast_filter_ và slow_filter_ sẽ được khởi tạo khi có costmap đầu tiên
 }
 
-// Constructor có tham số
-BackgroundSubtractor::BackgroundSubtractor(float alpha_fast, float alpha_slow, float beta, float threshold1, float threshold2)
-    : alpha_fast_(alpha_fast),
-      alpha_slow_(alpha_slow),
-      beta_(beta),
-      threshold1_(threshold1),
-      threshold2_(threshold2)
+void BackgroundSubtractor::apply(const cv::Mat& image, cv::Mat& fg_mask, int shift_x, int shift_y)
 {
-    // Các ma trận fast_filter_ và slow_filter_ sẽ được khởi tạo khi có costmap đầu tiên
+  // std::cout << "[INFO] Applying background subtraction..." << std::endl;
+  current_frame_ = image;
+  // visualize("1. Original Input Frame", current_frame_);
+
+  // Initialize occupancy grids on the first frame
+  if (occupancy_grid_fast_.empty() && occupancy_grid_slow_.empty())
+  {
+    // std::cout << "[INFO] Initializing occupancy grids..." << std::endl;
+    occupancy_grid_fast_ = current_frame_;
+    occupancy_grid_slow_ = current_frame_;
+    previous_shift_x_ = shift_x;
+    previous_shift_y_ = shift_y;
+    // visualize("2. Initialized Occupancy Grid", occupancy_grid_fast_);
+    return;
+  }
+
+  // Compute relative shift
+  int shift_relative_x = shift_x - previous_shift_x_;
+  int shift_relative_y = shift_y - previous_shift_y_;
+  previous_shift_x_ = shift_x;
+  previous_shift_y_ = shift_y;
+
+  if (shift_relative_x != 0 || shift_relative_y != 0)
+  {
+    // std::cout << "[INFO] Translating occupancy grids by (" << shift_relative_x << ", " << shift_relative_y << ")" << std::endl;
+    transformToCurrentFrame(shift_relative_x, shift_relative_y);
+    // visualize("3. Transformed Occupancy Grids (After Shift)", occupancy_grid_fast_);
+  }
+
+  // Calculate mean of nearest neighbors using box filter
+  int size = 3;  // Kernel size for neighbor mean computation
+  cv::Mat nearest_mean_fast, nearest_mean_slow;
+  cv::boxFilter(occupancy_grid_fast_, nearest_mean_fast, -1, cv::Size(size, size));
+  cv::boxFilter(occupancy_grid_slow_, nearest_mean_slow, -1, cv::Size(size, size));
+  // visualize("4. Nearest Neighbor Mean (Fast Grid)", nearest_mean_fast);
+  // visualize("5. Nearest Neighbor Mean (Slow Grid)", nearest_mean_slow);
+
+  // Update the occupancy grids using addWeighted
+  // std::cout << "[INFO] Updating occupancy grids..." << std::endl;
+  cv::addWeighted(current_frame_, params_.alpha_fast, occupancy_grid_fast_, (1 - params_.alpha_fast), 0, occupancy_grid_fast_);
+  cv::addWeighted(occupancy_grid_fast_, params_.beta, nearest_mean_fast, (1 - params_.beta), 0, occupancy_grid_fast_);
+  cv::addWeighted(current_frame_, params_.alpha_slow, occupancy_grid_slow_, (1 - params_.alpha_slow), 0, occupancy_grid_slow_);
+  cv::addWeighted(occupancy_grid_slow_, params_.beta, nearest_mean_slow, (1 - params_.beta), 0, occupancy_grid_slow_);
+  // visualize("6. Updated Fast Occupancy Grid", occupancy_grid_fast_);
+  // visualize("7. Updated Slow Occupancy Grid", occupancy_grid_slow_);
+
+  // Apply thresholds for obstacle detection
+  cv::threshold(occupancy_grid_fast_, occupancy_grid_fast_, params_.min_occupancy_probability, 0, cv::THRESH_TOZERO);
+  // visualize("8. Thresholded Fast Grid (Static Obstacle Detection)", occupancy_grid_fast_);
+
+  cv::threshold(occupancy_grid_fast_ - occupancy_grid_slow_, fg_mask, params_.min_sep_between_fast_and_slow_filter, 255, cv::THRESH_BINARY);
+  // visualize("9. Foreground Mask (Fast - Slow Grid Difference)", fg_mask);
+
+  cv::threshold(nearest_mean_slow, nearest_mean_slow, params_.max_occupancy_neighbors, 255, cv::THRESH_BINARY_INV);
+  // visualize("10. Inverse Threshold (Filter Static Obstacles)", nearest_mean_slow);
+
+  cv::bitwise_and(nearest_mean_slow, fg_mask, fg_mask);
+  // visualize("11. Final Foreground Mask (After Filtering Static Obstacles)", fg_mask);
+
+  // Set image border to zero to handle boundary artifacts
+  int border = 5;
+  cv::Mat border_mask(current_frame_.size(), CV_8UC1, cv::Scalar(0));
+  border_mask(cv::Rect(border, border, current_frame_.cols - 2 * border, current_frame_.rows - 2 * border)) = 255;
+  cv::bitwise_and(border_mask, fg_mask, fg_mask);
+  // visualize("12. Foreground Mask (After Border Cropping)", fg_mask);
+
+  // Apply closing (morphological operations)
+  cv::Mat element = cv::getStructuringElement(cv::MORPH_ELLIPSE,
+                                              cv::Size(2 * params_.morph_size + 1, 2 * params_.morph_size + 1),
+                                              cv::Point(params_.morph_size, params_.morph_size));
+  cv::dilate(fg_mask, fg_mask, element);
+  cv::dilate(fg_mask, fg_mask, element);
+  cv::erode(fg_mask, fg_mask, element);
+  // visualize("13. Foreground Mask (After Morphological Closing)", fg_mask);
 }
 
-void BackgroundSubtractor::apply(const cv::Mat& costmap, cv::Mat& fg_mask)
+void BackgroundSubtractor::transformToCurrentFrame(int shift_x, int shift_y)
 {
-    // Kiểm tra xem costmap đầu vào có hợp lệ không
-    if (costmap.empty()) {
-        fg_mask = cv::Mat();
-        return;
-    }
+  cv::Mat temp_fast, temp_slow;
+  cv::Mat translation_mat = (cv::Mat_<double>(2, 3, CV_64F) << 1, 0, -shift_x, 0, 1, -shift_y);
+  cv::warpAffine(occupancy_grid_fast_, temp_fast, translation_mat, occupancy_grid_fast_.size());
+  cv::warpAffine(occupancy_grid_slow_, temp_slow, translation_mat, occupancy_grid_slow_.size());
 
-    // Nếu đây là lần đầu tiên, khởi tạo các bộ lọc với costmap ban đầu
-    if (fast_filter_.empty() || slow_filter_.empty()) {
-        costmap.copyTo(fast_filter_);
-        costmap.copyTo(slow_filter_);
-        fg_mask = cv::Mat::zeros(costmap.size(), CV_8UC1); // Ban đầu không có tiền cảnh
-        return;
-    }
+  occupancy_grid_fast_ = temp_fast;
+  occupancy_grid_slow_ = temp_slow;
+}
 
-    // Đảm bảo kích thước của các ma trận phù hợp với costmap đầu vào
-    CV_Assert(costmap.size() == fast_filter_.size() && costmap.size() == slow_filter_.size());
+// Debug visualization function (commented by default)
+void BackgroundSubtractor::visualize(const std::string& name, const cv::Mat& image)
+{
+  if (!image.empty())
+  {
+    std::cout << "[DEBUG] Visualizing: " << name << std::endl;
+    cv::Mat im = image.clone();
+    cv::flip(im, im, 0);  // Flip image vertically
+    cv::imshow(name, im);
+    cv::waitKey(1);
+  }
+}
 
-    // Cập nhật bộ lọc nhanh và chậm bằng công thức trung bình chạy
-    fast_filter_ = (1.0f - alpha_fast_) * fast_filter_ + alpha_fast_ * costmap;
-    slow_filter_ = (1.0f - alpha_slow_) * slow_filter_ + alpha_slow_ * costmap;
-
-    // Tính toán sự khác biệt giữa costmap hiện tại và bộ lọc nhanh
-    cv::Mat diff_fast;
-    cv::absdiff(costmap, fast_filter_, diff_fast);
-
-    // Tính toán sự khác biệt giữa bộ lọc nhanh và chậm
-    cv::Mat diff_filters;
-    cv::absdiff(fast_filter_, slow_filter_, diff_filters);
-
-    // Tạo mặt nạ tiền cảnh ban đầu dựa trên ngưỡng threshold1_
-    fg_mask = cv::Mat::zeros(costmap.size(), CV_8UC1);
-    fg_mask.setTo(255, diff_fast > threshold1_);
-
-    // Tinh chỉnh mặt nạ bằng cách kiểm tra sự khác biệt giữa hai bộ lọc
-    cv::Mat refine_mask;
-    refine_mask = (diff_filters > threshold2_);
-    fg_mask &= refine_mask; // Chỉ giữ những điểm thỏa mãn cả hai điều kiện
-
-    // Áp dụng ảnh hưởng của hàng xóm (spatial smoothing) bằng beta_
-    if (beta_ > 0.0f) {
-        cv::Mat smoothed_mask;
-        cv::GaussianBlur(fg_mask, smoothed_mask, cv::Size(5, 5), 0); // Lọc Gaussian để làm mịn
-        fg_mask = (1.0f - beta_) * fg_mask + beta_ * smoothed_mask; // Kết hợp với mặt nạ gốc
-        fg_mask.convertTo(fg_mask, CV_8UC1); // Chuyển về định dạng nhị phân
-        cv::threshold(fg_mask, fg_mask, 127, 255, cv::THRESH_BINARY); // Nhị phân hóa lại
-    }
+void BackgroundSubtractor::updateParameters(const Params &parameters)
+{
+  params_ = parameters;
 }

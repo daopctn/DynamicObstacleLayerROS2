@@ -1,63 +1,102 @@
-#include "costmap_to_dynamic_obstacles.hpp"
+#include "costmap_to_dynamic_obstacles.h"
 #include <opencv2/opencv.hpp>
 #include <cv_bridge/cv_bridge.h>
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>
+#include <rclcpp/rclcpp.hpp>
+#include <nav2_dynamic_msgs/msg/obstacle.hpp>
+#include <nav2_dynamic_msgs/msg/obstacle_array.hpp>
+#include <nav2_costmap_2d/costmap_2d_ros.hpp>
+#include <nav2_costmap_2d/costmap_2d.hpp>
 
-void CostmapToDynamicObstacles::initialize(const BlobDetectorParams& blob_params, const BackgroundSubtractorParams& bg_params) {
-    // Initialize background subtractor and blob detector with parameters
-    background_subtractor_ = std::make_shared<BackgroundSubtractor>(bg_params);
-    blob_detector_ = std::make_shared<BlobDetector>(blob_params);
+void CostmapToDynamicObstacles::initialize() {
+    // Initialize background_subtractor with parameters
+    BackgroundSubtractor::Params params;
+    params.alpha_fast = 0.7;
+    params.alpha_slow = 0.1;
+    params.beta = 0.8;
+    params.min_occupancy_probability = 100;
+    params.min_sep_between_fast_and_slow_filter = 40;
+    params.max_occupancy_neighbors = 100;
+    params.morph_size = 0;
+    background_subtractor_ = std::make_shared<BackgroundSubtractor>(params);
+
+    BlobDetector::Params blob_params;
+    blob_params.filterByColor = true;
+    blob_params.blobColor = 255;
+    blob_params.minDistBetweenBlobs = 10.0f;
+    blob_params.filterByArea = true;
+    blob_params.minArea = 3.0f;
+    blob_params.maxArea = 1000.0f;
+    blob_params.filterByCircularity = true;
+    blob_params.minCircularity = 0.0f;
+    blob_params.maxCircularity = 1.0f;
+    blob_params.filterByInertia = true;
+    blob_params.minInertiaRatio = 0.0f;
+    blob_params.maxInertiaRatio = 1.0f;
+    blob_params.filterByConvexity = true;
+    blob_params.minConvexity = 0.0f;
+    blob_params.maxConvexity = 1.0f;
+    blob_detector_ = BlobDetector::create(blob_params);
 }
 
-void CostmapToDynamicObstacles::setCostmap2D(costmap_2d::Costmap2D* costmap, cv::Mat& costmap_mat) {
-    int width = costmap->getSizeInCellsX();
-    int height = costmap->getSizeInCellsY();
-    costmap_mat = cv::Mat(height, width, CV_8UC1);
-    
-    for (int y = 0; y < height; y++) {
-        for (int x = 0; x < width; x++) {
-            unsigned char cost = costmap->getCost(x, y);
-            costmap_mat.at<uchar>(y, x) = (cost == costmap_2d::LETHAL_OBSTACLE) ? 255 : 0;
+void CostmapToDynamicObstacles::setCostmap2D(nav2_costmap_2d::Costmap2D* costmap, cv::Mat& costmap_mat) {
+    if (costmap) {
+        // Convert Costmap2D to OpenCV Mat
+        unsigned int width = costmap->getSizeInCellsX();
+        unsigned int height = costmap->getSizeInCellsY();
+
+        costmap_mat = cv::Mat(height, width, CV_8UC1);
+        for (unsigned int y = 0; y < height; ++y) {
+            unsigned char* row_ptr = costmap_mat.ptr<unsigned char>(y);
+            for (unsigned int x = 0; x < width; ++x) {
+                row_ptr[x] = costmap->getCost(x, y);
+            }
         }
+        cv::flip(costmap_mat, costmap_mat, 0);  // Flip matrix vertically
+    } else {
+        RCLCPP_ERROR(rclcpp::get_logger("costmap_to_dynamic_obstacles"), "Failed to get Costmap2D instance.");
     }
 }
 
-void CostmapToDynamicObstacles::compute(const cv::Mat& costmap_mat, nav2_dynamic_msgs::msg::ObstacleArray& obstacle_array) {
-    cv::Mat foreground_mask;
-    
-    // Apply background subtraction to isolate dynamic obstacles
-    background_subtractor_->apply(costmap_mat, foreground_mask);
+void CostmapToDynamicObstacles::compute(nav2_costmap_2d::Costmap2D* costmap, const cv::Mat& costmap_mat, nav2_dynamic_msgs::msg::ObstacleArray& obstacle_array) {
+    if (!costmap) {
+        RCLCPP_ERROR(rclcpp::get_logger("costmap_to_dynamic_obstacles"), "Failed to get Costmap2D from Costmap2DROS.");
+        return;
+    }
 
-    // Perform blob detection to identify dynamic objects and their contours
+    fg_mask = cv::Mat(costmap_mat.size(), CV_8UC1, cv::Scalar(0));
+
+    int origin_x = static_cast<int>(costmap->getOriginX() / costmap->getResolution());
+    int origin_y = static_cast<int>(costmap->getOriginY() / costmap->getResolution());
+
+    background_subtractor_->apply(costmap_mat, fg_mask, origin_x, origin_y);
     std::vector<cv::KeyPoint> keypoints;
-    std::vector<std::vector<cv::Point>> contours;
-    blob_detector_->detect(foreground_mask, keypoints, contours);
+    blob_detector_->detect(fg_mask, keypoints);
 
-    // Clear the obstacle array before populating new detected obstacles
     obstacle_array.obstacles.clear();
 
-    // Fill the ObstacleArray message
     for (size_t i = 0; i < keypoints.size(); ++i) {
         nav2_dynamic_msgs::msg::Obstacle obstacle;
-
-        // Generate a unique UUID for each obstacle
+        // Tạo UUID ngẫu nhiên cho mỗi obstacle
         boost::uuids::uuid uuid = boost::uuids::random_generator()();
-        obstacle.uuid = boost::uuids::to_string(uuid);
+        unique_identifier_msgs::msg::UUID ros_uuid;
+        std::copy(uuid.begin(), uuid.end(), ros_uuid.uuid.begin());  // Copy UUID từ Boost sang ROS2
 
-        // Assign position from keypoints (centroids)
+        obstacle.id = ros_uuid;  // Gán UUID cho obstacle
+
+
         obstacle.position.x = keypoints[i].pt.x;
         obstacle.position.y = keypoints[i].pt.y;
 
-        // Calculate bounding rectangle for the contour
-        cv::Rect bounding_box = cv::boundingRect(contours[i]);
-        obstacle.size_x = bounding_box.width;
-        obstacle.size_y = bounding_box.height;
+        
+        float radius = contours_[i].size() / 2;
+        obstacle.size.x = radius * 2;
+        obstacle.size.y = radius * 2;
 
-        // Fill header with timestamp and reference frame
         obstacle.header.stamp = rclcpp::Clock().now();
-        obstacle.header.frame_id = "/map";
+        obstacle.header.frame_id = "map";
 
         obstacle_array.obstacles.push_back(obstacle);
     }
