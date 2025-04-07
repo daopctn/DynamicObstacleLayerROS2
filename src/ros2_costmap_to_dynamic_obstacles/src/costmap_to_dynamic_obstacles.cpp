@@ -84,7 +84,7 @@ void CostmapToDynamicObstacles::compute(nav2_costmap_2d::Costmap2D* costmap, con
         unique_identifier_msgs::msg::UUID ros_uuid;
         std::copy(uuid.begin(), uuid.end(), ros_uuid.uuid.begin());  // Copy UUID từ Boost sang ROS2
 
-        obstacle.id = ros_uuid;  // Gán UUID cho obstacle
+        obstacle.uuid = ros_uuid;  // Gán UUID cho obstacle
 
 
         obstacle.position.x = keypoints[i].pt.x;

@@ -136,7 +136,7 @@ private:
       obstacle.size.x = keypoint.size * costmap_->getResolution();
       obstacle.size.y = keypoint.size * costmap_->getResolution();
       //gans UUID cho obstacle
-      obstacle.id = generateRandomUUID();
+      obstacle.uuid = generateRandomUUID();
       
       obstacle_array_.obstacles.push_back(obstacle);
     }
