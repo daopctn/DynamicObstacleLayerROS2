@@ -126,5 +126,6 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "*.ipp": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/daopctn/ros2_ws/src/nav2_dynamic_msgs"
 }
