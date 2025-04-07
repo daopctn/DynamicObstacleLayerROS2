@@ -40,7 +40,7 @@ class KFHungarianTracker(Node):
         self.declare_parameters(
             namespace="",
             parameters=[
-                ("global_frame", "camera_link"),
+                ("global_frame", "LDS-01"),
                 ("process_noise_cov", [2.0, 2.0, 0.5]),
                 ("top_down", False),
                 ("death_threshold", 3),
